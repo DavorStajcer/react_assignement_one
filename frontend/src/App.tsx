@@ -14,13 +14,13 @@ function App() {
   return (
     <>
       <header>
-        <h1 className="page-title">Note taker app</h1>
+        <h1 className="title">Note taker app</h1>
       </header>
       <body>
         <div>
-          <p className="text">Title</p>
+          <p className="text-title">Title</p>
           <input
-            className="input-field"
+            className="input-title"
             type="text"
             onChange={(e) =>
               setNote({
@@ -29,10 +29,9 @@ function App() {
               })
             }
           />
-          <p className="text">Content</p>
-          <input
-            className="input-field"
-            type="text"
+          <p className="text-description">Description</p>
+          <textarea
+            className="input-description"
             onChange={(e) =>
               setNote({
                 ...note,
@@ -45,17 +44,19 @@ function App() {
             onClick={(_) => setNotes([...allNotes, note])}
             disabled={!isButtonEnabled}
           >
-            Styled Button
+            Spremi notu
           </button>
 
-          {allNotes.map((note, index) => {
-            return (
-              <div key={index}>
-                <p>{note.title}</p>
-                <p>{note.content}</p>
-              </div>
-            );
-          })}
+          <div className="note-list">
+            {allNotes.map((note, index) => {
+              return (
+                <div key={index} className="note-item">
+                  <p>{note.title}</p>
+                  <p>{note.content}</p>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </body>
     </>

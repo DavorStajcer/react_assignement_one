@@ -1,38 +1,64 @@
-.text {
+.text-title,
+.text-description {
   display: block;
   font-size: 1.5em;
 }
 
-.input-field {
+.text-description {
+  margin-top: 32px;
+}
+
+.input-title,
+.input-description {
   display: block;
+  width: 100%;
+  border-radius: 8px;
+  border-color: transparent;
+  margin-top: 12px;
+  padding: 8px;
 }
 
+.input-description {
+  height: 200px;
+}
 body {
-  width: 60%;
+  padding: 10%;
 }
 
-.page-padding-div {
-  width: 20%;
+title {
+  display: inline-block;
+}
+
+header {
+  display: block;
+  text-align: center;
+  width: 100%;
 }
 
 .note-button {
   display: block;
-  margin: 10px;
+  margin-top: 24px;
   padding: 10px;
   background-color: #8833ff;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  width: 100%;
 }
 
 .note-button:disabled {
-  display: block;
-  margin: 10px;
-  padding: 10px;
   background-color: #7f7a87;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+}
+
+.note-list {
+  margin-top: 0px;
+  border-radius: 12px;
+  border-color: violet;
+}
+
+.note-item {
+  border-radius: 12px;
+  border-color: violet;
+  margin-top: 12px;
 }

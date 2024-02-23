@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { useLocalStorage } from "usehooks-ts";
 
@@ -11,29 +11,6 @@ function App() {
     setIsButtonEnabled(note.title !== "" && note.content !== "");
   }, [note]);
 
-  function onTitleChanged(event: ChangeEvent<HTMLInputElement>) {
-    const value = event.target.value;
-    console.log("onTitleChanged", value);
-    setNote({
-      ...note,
-      title: value,
-    });
-  }
-
-  function onContentChanged(event: ChangeEvent<HTMLInputElement>) {
-    const value = event.target.value;
-    console.log("onContentChanged", value);
-    setNote({
-      ...note,
-      content: value,
-    });
-  }
-
-  function onSaveNote(_: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
-    console.log("onSaveNote", note);
-    setNotes([...allNotes, note]);
-  }
-
   return (
     <>
       <header>
@@ -45,17 +22,27 @@ function App() {
           <input
             className="input-field"
             type="text"
-            onChange={onTitleChanged}
+            onChange={(e) =>
+              setNote({
+                ...note,
+                title: e.target.value,
+              })
+            }
           />
           <p className="text">Content</p>
           <input
             className="input-field"
             type="text"
-            onChange={onContentChanged}
+            onChange={(e) =>
+              setNote({
+                ...note,
+                content: e.target.value,
+              })
+            }
           />
           <button
             className="note-button"
-            onClick={onSaveNote}
+            onClick={(_) => setNotes([...allNotes, note])}
             disabled={!isButtonEnabled}
           >
             Styled Button

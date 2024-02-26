@@ -1,16 +1,7 @@
 interface Note {
+  id: string;
   title: string;
   content: string;
+  createdAt: number;
+  updatedAt: number | null;
 }
-
-/* class Note {
-  constructor(note: Note) {
-    this.title = note.title;
-    this.content = note.content;
-  }
-
-  isValid(): boolean {
-    return this.title !== "" && this.content !== "";
-  }
-}
- */

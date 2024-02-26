@@ -1,15 +1,17 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import { useLocalStorage } from "usehooks-ts";
 
 function App() {
-  let [note, setNote] = useState<Note>({ title: "", content: "" });
-  let [isButtonEnabled, setIsButtonEnabled] = useState<boolean>(false);
+  let [note, setNote] = useState<Note>({
+    id: "id1",
+    title: "",
+    content: "",
+    createdAt: Date.now(),
+    updatedAt: null,
+  });
   const [allNotes, setNotes] = useLocalStorage<Note[]>("notes", []);
-
-  useEffect(() => {
-    setIsButtonEnabled(note.title !== "" && note.content !== "");
-  }, [note]);
+  const isButtonEnabled = note.title !== "" && note.content !== "";
 
   return (
     <>
@@ -48,9 +50,9 @@ function App() {
           </button>
 
           <div className="note-list">
-            {allNotes.map((note, index) => {
+            {allNotes.map((note, _) => {
               return (
-                <div key={index} className="note-item">
+                <div key={note.id} className="note-item">
                   <p>{note.title}</p>
                   <p>{note.content}</p>
                 </div>

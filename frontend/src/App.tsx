@@ -3,7 +3,7 @@ import "./App.css";
 import { useLocalStorage } from "usehooks-ts";
 
 function App() {
-  let [note, setNote] = useState<Note>({
+  const [note, setNote] = useState<Note>({
     id: "id1",
     title: "",
     content: "",
@@ -50,7 +50,7 @@ function App() {
           </button>
 
           <div className="note-list">
-            {allNotes.map((note, _) => {
+            {allNotes.map((note) => {
               return (
                 <div key={note.id} className="note-item">
                   <p>{note.title}</p>

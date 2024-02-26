@@ -43,7 +43,7 @@ function App() {
           />
           <button
             className="note-button"
-            onClick={(_) => setNotes([...allNotes, note])}
+            onClick={() => setNotes([...allNotes, note])}
             disabled={!isButtonEnabled}
           >
             Spremi notu
